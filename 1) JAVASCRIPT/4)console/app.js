@@ -1,0 +1,10 @@
+var x = 80;
+console.clear();
+console.time("test");
+console.log(x);
+console.log(x + 90);
+console.log([1, 2, 3, 4, 5]);
+console.table([1, 2, 3, 4, 5]);
+console.error("something went wrong");
+console.warn("i am warning you");
+console.timeEnd("test");
