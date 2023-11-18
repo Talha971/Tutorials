@@ -1,0 +1,12 @@
+var arr = ["haris", 12, "male", "BA"];
+document.write("before modificaton <br>");
+document.write(arr);
+arr[0] = "hammas";
+arr[3] = "BCOM";
+document.write("<br>after modification<br>");
+document.write(arr);
+document.write("<br>before deletion<br>");
+document.write(arr);
+delete arr[2];
+document.write("<br>after deletion<br>");
+document.write(arr);
