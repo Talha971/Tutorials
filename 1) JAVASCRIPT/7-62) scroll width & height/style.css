@@ -1,0 +1,12 @@
+#xyz {
+  width: 700px;
+  height: 200px;
+  background-color: yellow;
+  padding: 10px;
+}
+#abc {
+  background-color: blue;
+  width: 50%;
+  height: 500px;
+  overflow: auto;
+}
