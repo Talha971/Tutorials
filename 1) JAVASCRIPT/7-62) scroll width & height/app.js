@@ -1,9 +1,11 @@
-// var a = document.querySelector("#abc");
-// a.addEventListener("scroll", () => {
-//   console.clear();
-//   console.log("scrollTop: " + a.scrollTop);
-//   console.log("scrolllest: " + a.scrollLeft);
-// });
+var b = document.querySelector("#abc");
+b.addEventListener("scroll", () => {
+  console.clear();
+  console.log("scrollTop: " + b.scrollTop);
+  console.log("scrolllest: " + a.scrollLeft);
+});
+
+
 var a = document.querySelector("#abc");
-console.log("scroll height; " + a.scrollHeight);
-console.log("scroll width: " + a.scrollWidth);
+console.log("<br> scroll height; " + a.scrollHeight);
+console.l<br> og("scroll width: " + a.scrollWidth);
