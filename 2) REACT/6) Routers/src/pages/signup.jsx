@@ -1,8 +1,8 @@
-import LoginForm from "../components/login"
 import { Row, Col } from "antd"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
-
+import SignupForm from "../components/signupForm";
+import { createUserWithEmailAndPassword } from "../config/firebase";
 
 function Login() {
     return (
@@ -10,9 +10,9 @@ function Login() {
         <div className="pt-5">
             <Row className="justify-content-center pt-5" >
                 <Col>
-                    <h1>Login Page</h1>
-                    <LoginForm />
-                    Don't have an account? <Link to={"/signup"} >signup</Link>
+                    <h1>Signup Page</h1>
+                    <SignupForm />
+                    Already have an account? <Link to={"/"}>login</Link>
                 </Col>
             </Row>
         </div >

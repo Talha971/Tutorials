@@ -1,5 +1,5 @@
 import './App.css';
-import AppRouter from './router';
+import AppRouter from './config/routers';
 function App() {
   return (
     <AppRouter />
