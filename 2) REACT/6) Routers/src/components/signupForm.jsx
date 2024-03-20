@@ -1,22 +1,20 @@
 import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-const onFinish = (values) => {
-    console.log('Success:', values);
-};
+
 const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
 };
-const SignupForm = () => (
+const SignupForm = ({ registerUser }) => (
     <Form
         name="basic"
         initialValues={{
             remember: true,
         }}
-        onFinish={onFinish}
+        onFinish={registerUser}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
     >
-        <Form.Item
+        {/* <Form.Item
             label="Email"
             name="Email"
             rules={[
@@ -33,7 +31,7 @@ const SignupForm = () => (
             ]}
         >
             <Input />
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item
             label="Full name"

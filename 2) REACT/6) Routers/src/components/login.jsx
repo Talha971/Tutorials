@@ -1,18 +1,16 @@
 import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-const onFinish = (values) => {
-    console.log('Success:', values);
-};
+
 const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
 };
-const LoginForm = () => (
+const LoginForm = ({ loginUser }) => (
     <Form
         name="basic"
         initialValues={{
             remember: true,
         }}
-        onFinish={onFinish}
+        onFinish={loginUser}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
     >

@@ -1,4 +1,5 @@
-import { useParams, useLocation, useSearchParams } from "react-router-dom"
+import { useParams, Outlet, useLocation, useSearchParams } from "react-router-dom"
+import AppLayout from "../components/layout";
 
 function Profile() {
     const { username } = useParams()
@@ -11,13 +12,18 @@ function Profile() {
     // console.log('setSearchParams--->', setsearchParams.get("name", "ahmed"));
 
     return (
-        <div><h1>Profile Page ({username})</h1>
+        <AppLayout>
+            <div><h1>Profile Page ({username})</h1>
 
-            <button onClick={() => {
-                searchParams.set("name", "saylani")
-                setsearchParams(searchParams)
-            }}>Update Search params</button>
-        </div>
+                <button onClick={() => {
+                    searchParams.set("name", "saylani")
+                    setsearchParams(searchParams)
+                }}>Update Search params</button>
+            </div>
+
+            {/* outlet doosre page ko laane main kaam aata */}
+            <Outlet />
+        </AppLayout>
     )
 }
 export default Profile

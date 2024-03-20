@@ -4,8 +4,15 @@ import Profile from "../pages/profile";
 import Login from "../pages/login";
 import AppLayout from "../components/layout";
 import AppNotFound from "../components/notFound";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SignupPage from "../pages/signup";
+import { auth, onAuthStateChanged } from "../config/firebase";
+import { Spin } from "antd";
+import SettingsPage from "../pages/settings";
+import UsersPage from "../pages/users";
+
+
+
 function AppRouter() {
 
     // Basic Routes concept
@@ -25,14 +32,42 @@ function AppRouter() {
     //     </BrowserRouter>
     // )
 
+    const [isUser, setInUser] = useState(false)
+    const [loader, setLoader] = useState(true)
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            console.log('user-->', user);
+            if (user) {
+                setInUser(true)
+            }
+            else {
+                setInUser(false)
+            }
+            setLoader(false)
+        })
+    }, [])
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/signup" element={<SignupPage />} />
-                <Route path="/profile" element={<Profile />} />
-            </Routes>
-        </BrowserRouter>
+        <div>
+            {
+                loader ?
+                    <div style={{ textAlign: "center", padding: "200px" }}>
+                        <Spin size="large" />
+                    </div >
+                    :
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={isUser ? <Navigate to={"/profile"} /> : <Login />} />
+                            <Route path="/signup" element={isUser ? <Navigate to={"/profile"} /> : <SignupPage />} />
+                            <Route path="/profile" element={isUser ? <Profile /> : <Navigate to={"/"} />} >
+                                <Route path="settings" element={<SettingsPage />} />
+                            </Route>
+                            <Route path="/users" element={isUser ? <UsersPage /> : <Navigate to={"/"} />} />
+
+                        </Routes>
+                    </BrowserRouter>
+            }
+        </div >
     )
 }
 export default AppRouter
